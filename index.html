@@ -1,138 +1,24 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Stand films — exhibition motion portfolio</title>
-  <meta name="description" content="Silent exhibition films for trade-show stands. Watch a photo loop, a glazing cutaway, an LED ribbon and a portrait totem.">
-  <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#f5f2ea">
-  <style>
-    :root {color-scheme:light;--paper:#f5f2ea;--ink:#152920;--mute:#48574d;--rule:#c8cbbf;--night:#172922;--pale:#eff0dd;--gold:#e9c976}
-    * {box-sizing:border-box}
-    html {scroll-behavior:smooth;scroll-padding-top:1.5rem}
-    body {margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
-    a {color:inherit;text-underline-offset:.24em}
-    a:focus-visible,button:focus-visible,video:focus-visible {outline:3px solid #b85629;outline-offset:4px}
-    .wrap {max-width:1530px;margin:auto;padding:0 clamp(20px,5vw,90px)}
-    .top {display:flex;align-items:center;justify-content:space-between;gap:2rem;min-height:77px;border-bottom:1px solid var(--rule)}
-    .wordmark {display:inline-flex;gap:.72rem;align-items:center;color:var(--ink);font-size:1.13rem;font-weight:650;letter-spacing:-.06em;text-decoration:none;white-space:nowrap}
-    .mark {display:flex;align-items:center;gap:2px;height:1.25rem;transform:skewY(-9deg)}
-    .mark i {display:block;width:5px;background:var(--ink);height:65%}
-    .mark i:nth-child(2){height:84%}.mark i:nth-child(3){height:100%}
-    nav {display:flex;align-items:center;gap:clamp(12px,3vw,42px);font-size:.86rem;line-height:1.3}
-    nav a {text-decoration:none}
-    nav a:hover,.wordmark:hover {text-decoration:underline}
-    .hero {display:grid;grid-template-columns:minmax(240px,.69fr) minmax(0,1.37fr);gap:clamp(30px,5vw,82px);padding:clamp(44px,6vw,96px) 0 clamp(43px,5.7vw,90px);align-items:center}
-    h1,h2,h3,h4,p,figure {margin:0}
-    h1,h2,h3,h4 {font-family:"Instrument Serif","Iowan Old Style",Baskerville,Georgia,serif;font-weight:400}
-    h1 {font-size:clamp(4rem,7.6vw,7.95rem);letter-spacing:-.078em;line-height:.91;max-width:7.5ch}
-    .hero-text>p {margin-top:1.8rem;color:var(--mute);font-size:clamp(1rem,1.35vw,1.24rem);max-width:33ch}
-    .stage {position:relative;background:var(--night);isolation:isolate}
-    video {display:block;width:100%;height:auto;background:#14211b;color:#fff}
-    .hero video,.study video {aspect-ratio:16/9}
-    .launch {position:absolute;bottom:16px;left:16px;display:none;align-items:center;gap:.72rem;border:0;border-radius:100px;background:var(--pale);color:var(--ink);padding:.8rem 1.05rem;font:600 .88rem/1 Inter,"Helvetica Neue",Arial,sans-serif;cursor:pointer;box-shadow:0 3px 18px #0003}
-    .enhanced .launch {display:inline-flex}.enhanced .launch[hidden] {display:none}
-    .launch span {width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--ink)}
-    .launch:hover {background:white}
-    figcaption,.eyebrow,.spec {font-family:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:clamp(.68rem,.84vw,.78rem);line-height:1.5;letter-spacing:.025em}
-    .hero figcaption {display:flex;justify-content:space-between;margin-top:.7rem;color:var(--mute);gap:.8rem}
-    .group {border-top:1px solid var(--rule);display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;padding:1.45rem 0 1.6rem}
-    .group h2,.screens h2 {font-size:clamp(2.35rem,4vw,4.35rem);letter-spacing:-.055em;line-height:1}
-    .group p {color:var(--mute);font-size:.9rem}
-    .two {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(25px,4vw,72px);margin-bottom:clamp(44px,5vw,76px)}
-    .study,.screens {scroll-margin-top:1rem}
-    .study .eyebrow {margin-top:1.15rem;color:var(--mute)}
-    .study h3 {font-size:clamp(1.95rem,3.1vw,3.15rem);letter-spacing:-.045em;line-height:1.07;margin:.22rem 0 .55rem}
-    .study p:last-child,.formats p {color:var(--mute);max-width:58ch}
-    .screens {background:var(--night);color:#f2efdf;padding:clamp(38px,5.3vw,75px) 0}
-    .screens h2{margin-bottom:.85rem}
-    .screens .intro {color:#bdc7b8;max-width:68ch;margin-bottom:2.1rem}
-    .formats {display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.75fr);gap:clamp(26px,5vw,90px);align-items:start}
-    .formats .mat {display:grid;grid-template:minmax(0,1fr) / minmax(0,1fr);place-items:center;background:#0d1914;height:clamp(235px,22vw,325px);overflow:hidden}
-    .formats .wide {aspect-ratio:32/9}
-    .formats .tall {min-height:0;min-width:0;height:100%;width:100%;object-fit:contain;background:transparent}
-    .formats h3 {font-size:clamp(1.8rem,2.5vw,2.7rem);letter-spacing:-.04em;line-height:1.1;margin:.99rem 0 .25rem}
-    .formats .spec {color:var(--gold);margin-top:.8rem}
-    .formats p {color:#d3d8cc}
-    .brief {display:grid;grid-template-columns:1fr 1.35fr;gap:3rem;align-items:start;padding:clamp(42px,6vw,95px) 0}
-    .brief h2 {font-size:clamp(2.8rem,4.3vw,4.6rem);line-height:1;letter-spacing:-.06em}
-    .brief p {font-size:clamp(1.14rem,1.8vw,1.7rem);line-height:1.4;letter-spacing:-.026em;max-width:47ch}
-    .skip {position:absolute;left:8px;top:-100px;background:white;padding:.6rem;z-index:10}.skip:focus{top:8px}
-    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:1.55rem}.hero-text{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:1.5rem}.hero-text>p{margin:0}h1{font-size:clamp(3.7rem,10vw,6rem)}.formats .mat{height:230px}.top{min-height:66px}}
-    @media(max-width:610px){.top{gap:12px;min-height:64px}nav{gap:13px;font-size:.77rem}.wordmark{font-size:.98rem;gap:.42rem}.hero{padding:36px 0 32px}.hero-text{display:block}.hero-text>p{margin-top:1rem;max-width:37ch}.group{display:block;padding:1.3rem 0}.group p{margin-top:.4rem}.two,.formats,.brief{grid-template-columns:1fr}.two{gap:2.1rem}.formats{gap:2rem}.formats .mat{height:auto;padding:14px 0}.formats .mat:has(.tall){height:310px;padding:0}.brief{gap:1rem}.brief h2{font-size:2.8rem}.hero figcaption{flex-wrap:wrap;gap:.25rem 1rem}.launch{left:8px;bottom:8px}}
-    @media(max-width:350px){.wrap{padding:0 14px}.top{align-items:flex-start;justify-content:center;flex-direction:column;padding:10px 0;gap:7px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
-</head>
-<body id="top">
-  <a class="skip" href="#main">Skip to films</a>
-  <div class="wrap">
-    <header class="top">
-      <a class="wordmark" href="#top" aria-label="Stand films, back to top"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span> Stand films</a>
-      <nav aria-label="Film examples"><a href="#photo">Photo loops</a><a href="#motion">Motion</a><a href="#screen">Formats</a></nav>
-    </header>
-    <main id="main">
-      <section class="hero" aria-labelledby="title">
-        <div class="hero-text"><h1 id="title">Films for the show floor.</h1><p>Silent films for exhibition stands. See how a product photograph, a cutaway or a ribbon of light can carry a message across a busy hall.</p></div>
-        <figure>
-          <div class="stage">
-            <video id="reel" controls muted playsinline preload="none" poster="assets/showreel-poster.jpg" aria-label="48-second exhibition film showreel, featuring eleven fictional concepts" src="assets/showreel.mp4"></video>
-            <button class="launch" id="play-reel" type="button"><span aria-hidden="true"></span>Play showreel</button>
-          </div>
-          <figcaption><span>11 fictional concepts</span><span>00:48 · silent</span></figcaption>
-        </figure>
-      </section>
-      <section aria-labelledby="products">
-        <div class="group"><h2 id="products">Product films</h2><p>Two approaches, shown in full.</p></div>
-        <div class="two">
-          <article class="study" id="photo">
-            <video controls muted playsinline loop preload="none" src="assets/photo-loop.mp4" poster="assets/photo-loop.jpg" aria-label="Finished 20-second photographic loop for a fictional sealant, shown in landscape"></video>
-            <p class="eyebrow">Photo loop · 00:20 · 1920 × 1080</p>
-            <h3>Three photographs, one loop.</h3>
-            <p>A sealant cartridge, a joint in stone and the finished façade. The quick format uses three approved photographs and your wording for one landscape or portrait screen. Includes one consolidated revision and one silent H.264 MP4.</p>
-          </article>
-          <article class="study" id="motion">
-            <video controls muted playsinline loop preload="none" src="assets/glazing.mp4" poster="assets/glazing.jpg" aria-label="Layered glazing section separating into its components"></video>
-            <p class="eyebrow">Custom product motion · 00:18 · 1920 × 1080</p>
-            <h3>Inside the glazing.</h3>
-            <p>Reeded glass, an amber interlayer and clear backing separate in section. For a custom cutaway, share your drawings or approved model and the detail you want to explain. Modelling, animation and technical review are scoped with the brief.</p>
-          </article>
-        </div>
-      </section>
-    </main>
-  </div>
-  <section id="screen" class="screens" aria-labelledby="format-heading">
-    <div class="wrap">
-      <h2 id="format-heading">Films for the screen you have.</h2>
-      <p class="intro">A ribbon and a totem give a visitor different sightlines. Each composition starts with the technician’s pixel map, the viewing distance and any masked areas.</p>
-      <div class="formats">
-        <article><div class="mat"><video class="wide" controls muted playsinline loop preload="none" src="assets/lighting-ribbon.mp4" poster="assets/lighting-ribbon.jpg" aria-label="Ultrawide LED ribbon comparing three pendant beam shapes"></video></div>
-          <h3>Three beams on a ribbon.</h3><p>Three pendant optics spread across a 32:9 canvas. The width lets a visitor compare beam shapes at a glance.</p><p class="spec">LED ribbon · 2560 × 720 · 00:16</p>
-        </article>
-        <article><div class="mat"><video class="tall" controls muted playsinline loop preload="none" src="assets/wayfinding.mp4" poster="assets/wayfinding.jpg" aria-label="Portrait totem with English and Arabic directions and arrows"></video></div>
-          <h3>A sign in two scripts.</h3><p>Arabic and English directions share one portrait totem. Supply approved wording in both languages and the stand layout so the arrows point the right way.</p><p class="spec">Portrait totem · 1080 × 1920 · 00:16</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  <div class="wrap">
-    <footer class="brief"><h2>Brief a film.</h2><p>Reply to the person who shared this reel with your screen dimensions, asset list and handover date.</p></footer>
-  </div>
-  <script>
-    const reel = document.getElementById('reel');
-    const playButton = document.getElementById('play-reel');
-    const videos = Array.from(document.querySelectorAll('video'));
-    document.documentElement.classList.add('enhanced');
-    reel.controls = false;
-    playButton.addEventListener('click', () => {
-      reel.controls = true;
-      playButton.hidden = true;
-      reel.play().catch(() => reel.focus());
-    });
-    videos.forEach(video => video.addEventListener('play', () => {
-      videos.forEach(other => { if (other !== video) other.pause(); });
-    }));
-  </script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Stand films: exhibition motion portfolio</title><meta name="description" content="Silent films for exhibition stands: a product built part by part, a cutaway, photo loops, an LED ribbon and a portrait totem.">
+<style>
+*{box-sizing:border-box} body{margin:0;font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1b2733;background:#fff}
+.hero{background:linear-gradient(135deg,#0b1b2b,#14304a);color:#fff;padding:56px 0 60px} .in{max-width:1120px;margin:0 auto;padding:0 20px}
+.eyebrow{color:#5eead4;font-weight:700;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;margin:0 0 12px}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin:0 0 18px;letter-spacing:-.02em} .lead{font-size:19px;color:#cfe0ec;max-width:60ch;margin:0}
+video{width:100%;height:auto;display:block;border-radius:14px;background:#000;aspect-ratio:16/9} .ribbon video{aspect-ratio:32/9} .tall video{aspect-ratio:9/16;max-width:330px;margin:0 auto}
+.reel{margin:-34px auto 0;} .reel figcaption{text-align:center;color:#5a6b7a;font-size:14px;margin-top:8px} figure{margin:0}
+main{padding:8px 0 40px} .film{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:center;padding:38px 0;border-top:1px solid #dde4ea}
+.film.ribbon{grid-template-columns:1fr} .film.tall{grid-template-columns:minmax(0,330px) minmax(0,1fr)}
+.film:first-of-type{border-top:0} h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin:0 0 10px;letter-spacing:-.01em} .meta{color:#0f766e;font-weight:700;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;margin:0 0 8px}
+.film p{margin:0;color:#3d4d5a} .brief{background:#0b1b2b;color:#fff;padding:44px 0} .brief p{color:#cfe0ec;margin:6px 0 0;max-width:60ch}
+footer{background:#08141f;color:#9fb6c8;font-size:14px;padding:22px 0}
+@media(max-width:780px){.film,.film.tall{grid-template-columns:1fr;gap:16px}.reel{margin-top:-22px}}
+</style></head><body>
+<div class="hero"><div class="in"><p class="eyebrow">Stand films · exhibition motion</p><h1>Films for the show floor.</h1>
+<p class="lead">Silent films for exhibition stands: a product built part by part, a cutaway, a photograph brought to life, or light across a ribbon of screen. Each one loops, and each is made for the screen you have.</p></div></div>
+<main><div class="in"><figure class="reel"><video src="assets/showreel.mp4" poster="assets/showreel.jpg" controls playsinline muted preload="none"></video><figcaption>The showreel: eight films, one minute, silent.</figcaption></figure>
+<section class="film wide"><video src="assets/pumpfilm.mp4" poster="assets/pumpfilm.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Product build · 30 seconds</p><h2>Built part by part</h2><p>337 parts, one pump. The product is modelled part by part and assembled on screen: the parts laid out, a pass along the shaft, the assembly with a running count, a look down the suction bore, and the painted pump at the end.</p></div></section><section class="film wide"><video src="assets/glazing.mp4" poster="assets/glazing.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Cutaway · 16 seconds</p><h2>Inside the glazing</h2><p>A laminated glass sample opens into its three layers, holds while each is named, and closes again. The labels stay pinned to the glass as it turns.</p></div></section><section class="film wide"><video src="assets/mallet.mp4" poster="assets/mallet.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Changeover · 15 seconds</p><h2>Two faces, one mallet</h2><p>Both faces unscrew, hold apart with their studs showing, and screw back in. For any product whose selling point is a part that changes.</p></div></section><section class="film wide"><video src="assets/sealant.mp4" poster="assets/sealant.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Photo loop · 18 seconds</p><h2>Three photographs, one loop</h2><p>A cartridge, a joint in stone and the finished façade. Approved photographs become moving footage, with your wording and stand number on every shot.</p></div></section><section class="film wide"><video src="assets/stone.mp4" poster="assets/stone.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Material study · 16 seconds</p><h2>Stone, under a moving light</h2><p>Three finishes, each crossed by a low lamp so the surface shows its relief. The relief is worked out from the photograph itself.</p></div></section><section class="film wide"><video src="assets/pumps.mp4" poster="assets/pumps.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Range with callouts · 16 seconds</p><h2>Two products, three facts each</h2><p>Each product arrives with its figures and three callouts that draw on, pinned to the right part.</p></div></section><section class="film ribbon"><video src="assets/ribbon.mp4" poster="assets/ribbon.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">LED ribbon · 2560 × 720 · 16 seconds</p><h2>One pendant, three beams</h2><p>Three optics across a 32:9 canvas. Each beam opens and closes in turn, with its angle shown beneath it.</p></div></section><section class="film tall"><video src="assets/totem.mp4" poster="assets/totem.jpg" controls playsinline muted loop preload="none"></video><div><p class="meta">Portrait totem · 1080 × 1920 · 15 seconds</p><h2>A sign in two scripts</h2><p>Arabic and English directions share one portrait totem, with the Arabic set right to left and the arrow pointing the way.</p></div></section></div></main>
+<div class="brief"><div class="in"><h2>Brief a film.</h2><p>Reply to the person who shared this reel with your screen dimensions, your photographs or drawings, and the handover date.</p></div></div>
+<footer><div class="in">Every product, brand and figure shown here is fictional, made to show the formats.</div></footer>
+</body></html>
